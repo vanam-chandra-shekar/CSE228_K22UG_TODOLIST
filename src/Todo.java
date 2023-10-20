@@ -1,20 +1,31 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Todo {
+
+
+public class Todo implements Serializable {
     private int currentid = 1;
     private ArrayList<Task> taskslList = new ArrayList<Task>();
-    private Scanner sc = new Scanner(System.in);
+    private boolean quit = false;
 
+    public void setQuit(boolean quit) {
+        this.quit = quit;
+    }
+
+    static Scanner sc = new Scanner(System.in);
+
+     
 
     public void run(){
-        boolean quit = false;
+        
 
         do{
             System.out.println("----------MENU----------");
             System.out.println("1. List all Tasks");
             System.out.println("2. Add new Task");
+            System.out.println("3. Exit");
             System.out.print("> ");
 
             int option = sc.nextInt();
@@ -36,6 +47,9 @@ public class Todo {
                 break;
             case 2:
                 addTask();
+                break;
+            case 3:
+                quit = true;
                 break;
             default:
                 System.out.println("[message]: Select valid option");
