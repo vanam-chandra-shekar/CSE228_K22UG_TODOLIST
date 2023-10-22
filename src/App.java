@@ -10,7 +10,7 @@ public class App {
     private Todo todo = new Todo();
     private File data = new File("data.dat"); 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         App app = new App();
         app.run();
     }
@@ -35,10 +35,15 @@ public class App {
             } 
             catch (ClassNotFoundException ex)
             {
-                System.out.println(ex.getMessage());
+                System.out.println();
+                System.out.println("[error]: corrupted files");
+                System.out.println();
+
             }
             catch (IOException e) {
-                System.out.println(e.getMessage());
+                System.out.println();
+                System.out.println("[error]: corrupted files");
+                System.out.println();
             }
             todo.setQuit(false);
             todo.run();
@@ -56,7 +61,9 @@ public class App {
             oos.writeObject(obj);
             oos.close();
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+                System.out.println();
+                System.out.println("[error]: corrupted files");
+                System.out.println();
         }
     }
 

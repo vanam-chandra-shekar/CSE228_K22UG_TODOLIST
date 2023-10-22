@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Todo implements Serializable {
     private int currentid = 1;
     private ArrayList<Task> taskslList = new ArrayList<Task>();
+
     private boolean quit = false;
 
     public void setQuit(boolean quit) {
@@ -16,16 +17,17 @@ public class Todo implements Serializable {
 
     static Scanner sc = new Scanner(System.in);
 
-     
 
     public void run(){
         
-
         do{
             System.out.println("----------MENU----------");
             System.out.println("1. List all Tasks");
             System.out.println("2. Add new Task");
-            System.out.println("3. Exit");
+            System.out.println("3. Mark Task done");                     
+            System.out.println("4. Edit Task");
+            System.out.println("5. Exit");
+
             System.out.print("> ");
 
             int option = sc.nextInt();
@@ -49,6 +51,11 @@ public class Todo implements Serializable {
                 addTask();
                 break;
             case 3:
+                markingDone();
+                break;
+            case 4:
+                editTask();
+            case 5:
                 quit = true;
                 break;
             default:
@@ -85,4 +92,44 @@ public class Todo implements Serializable {
         }
 
     }
+
+    private void markingDone()
+    {
+        if(taskslList.size()>0)
+        {
+            System.out.println();
+            System.out.print("Enter the id of Task : ");
+            int id = sc.nextInt();
+            sc.nextLine();
+            System.out.println("[message]: if Marked done task will be removed");
+            taskslList.remove(id-1);
+            System.out.println(String.format("[message]: Id no:%d Task marked done", id));
+            System.out.println();
+        }
+        else
+        {
+            System.out.println("[message]: No Task Left");
+            System.out.println();
+        }
+    }
+
+
+    private void editTask()
+    {
+        if(taskslList.size()>0)
+        {
+            System.out.println();
+            System.out.print("Enter the id of Task : ");
+            int id = sc.nextInt();
+            sc.nextLine();
+            System.out.println(String.format("[message]: Id no:%d Task marked done", id));
+            System.out.println();
+        }
+        else
+        {
+            System.out.println("[message]: No Task Left");
+            System.out.println();
+        }
+    }
+
 }

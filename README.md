@@ -1,6 +1,6 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This Project implements a cli TODO list in java 
 
 ## Folder Structure
 
@@ -11,8 +11,6 @@ The workspace contains two folders by default, where:
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
+> This project is made in  ` visual studio code ` so the ` .vscode ` is important for the project to be able to run sucessfully 
+
 > If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
